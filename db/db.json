@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "email": "lucaskendy2002@gmail.com",
+      "pass": "123123",
+      "nome": "Lucas Kendy Urano",
+      "idade": 21,
+      "cargo": "Programador",
+      "setor": "Desenvolvimento",
+      "id": 1
+    },
+    {
+      "email": "clima1528@gmail.com",
+      "pass": "1273",
+      "nome": "Clara Maria Lima",
+      "idade": 20,
+      "cargo": "Enfermeira",
+      "setor": "Atendimento",
+      "id": 2
+    },
+    {
+      "email": "daniele@email.com",
+      "pass": "danidanidani",
+      "nome": "Daniele Fabiana",
+      "idade": 33,
+      "cargo": "Atendente",
+      "setor": "Atendimento",
+      "id": 3
+    }
+  ]
+}
