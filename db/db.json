@@ -7,6 +7,7 @@
       "idade": 21,
       "cargo": "Programador",
       "setor": "Desenvolvimento",
+      "foto": "https://i.imgur.com/6LIfklc.jpg",
       "id": 1
     },
     {
@@ -16,6 +17,7 @@
       "idade": 20,
       "cargo": "Enfermeira",
       "setor": "Atendimento",
+      "foto" : "https://i.imgur.com/QK553sm.jpg",
       "id": 2
     },
     {
@@ -26,6 +28,15 @@
       "cargo": "Atendente",
       "setor": "Atendimento",
       "id": 3
+    },
+    {
+      "email": "pedro@email.com",
+      "pass": "123123",
+      "nome": "Pedro Barreiro",
+      "idade": 20,
+      "cargo": "Programador Web",
+      "setor": "Desenvolvimento",
+      "id": 4
     }
   ]
 }

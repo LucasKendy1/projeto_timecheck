@@ -24,6 +24,7 @@
 </template>
 
 <script>
+const STORAGE_KEY = 'user'
 import InputForm from '@/components/InputForm.vue';
 import Button from '@/components/Button.vue';
 import Message from '@/components/Message.vue';
@@ -36,7 +37,7 @@ import Message from '@/components/Message.vue';
                 pass: '',
                 verificadoemail:null,
                 verificadosenha: null,
-                msg: '',
+                msg: null,
                 status: ''
             }
         },
@@ -61,35 +62,25 @@ import Message from '@/components/Message.vue';
 
                 for(let i=0; i<data.length; i++){
                     console.log(data[i])
-                    if(data[i].email==userEmail){
-                        //se for igual, é pq ele achou o email
-                        console.log("achei o email")
-                        this.verificadoemail=true
-
-                        //se ele acha o email, vai procurar pela senha
-                        if(data[i].pass==userPass){
-                            //se ele entrar aqui, a senha esta correta e pode ser redirecionado para a tela home
-                            console.log("senha correta")
-                            this.verificadosenha=true
-                            this.msg = "email e senha verificados com sucesso"
-                            this.status = "good"
-                            
-                        }
-                        else{
-                            //se entrar aqui é pq a senha esta incorreta
-                            console.log("senha incorreta")
-                            this.verificadosenha=false
-                            this.msg = "senha incorreta"
-                            this.status = "bad"
-                            
-                        }
+                    if(data[i].email!=userEmail){
+                        this.msg="email ou senha não cadastrados no sistema"
+                        this.status="bad"
                     }
                     else{
-                        //se entrar aqui é pq n existe esse email cadastrado
-                        console.log("email nao cadastrado")
-                        this.verificadoemail=false
-                        this.msg = "email não cadastrado no sistema"
-                        this.status = "non"
+                        this.msg="email verificado"
+                        if(data[i].pass!=userPass){
+                            this.msg="senha incorreta"
+                            this.status="bad"
+                        }
+                        else{
+                            this.msg="email e senha verificados"
+                            this.status="good"
+    
+                            localStorage.setItem(STORAGE_KEY, JSON.stringify(data[i]))
+                            
+                            i=data.length+1
+                            setTimeout(() => window.location.href="./",1000)
+                        }
                     }
                 }
             }
