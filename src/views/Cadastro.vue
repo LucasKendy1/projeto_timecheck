@@ -17,7 +17,7 @@
 
             <div class="container-form">
                 <div class="container-label">
-                    <label for="pass">senha: </label>
+                    <label for="pass">Senha: </label>
                 </div>
                 <div class="container-input">
                     <input name="pass" class="form-inputs" type="password" placeholder="Digite sua senha" v-model="pass">
@@ -156,12 +156,16 @@ input{
     width: 100%;
     height: 90%;
     border: none;
-    color: white;
-    background-color: #30526a00;
+    color: rgb(255, 255, 255);
+    background-color: #7e919e8a;
     padding-left: 20px;
+    border-radius: 7px;
+}
+input::placeholder{
+    color: white;
 }
 form{
-    width: 70%;
+    width: 50%;
     /* background-color: aqua; */
 }
 label{

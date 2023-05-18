@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import Cadastro from '@/views/Cadastro.vue'
 import Login from '@/views/Login.vue'
 import Entrada from '@/views/Entrada.vue'
+import Pausa from "@/views/Pausa.vue"
+import Volta from "@/views/Volta.vue"
+import Saida from "@/views/Saida.vue"
 
 const routes = [
   {
@@ -32,6 +35,21 @@ const routes = [
     path: '/entrada',
     name: 'entrada',
     component: Entrada
+  },
+  {
+    path: '/pausa',
+    name: 'pausa',
+    component: Pausa
+  },
+  {
+    path: '/volta',
+    name: 'volta',
+    component: Volta
+  },
+  {
+    path: '/saida',
+    name: 'saida',
+    component: Saida
   }
 ]
 

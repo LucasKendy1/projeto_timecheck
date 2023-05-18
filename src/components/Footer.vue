@@ -1,7 +1,17 @@
 <template>
     <div>
         <footer>
-            <div class="container-icon">
+            <div v-show="menu" class="menuAberto">
+                <ul>
+                    <li>Perfil</li>
+                    <li>Meus Pontos</li>
+                    <li>Chat RH</li>
+                    <li>Ajuda</li>
+                </ul>
+            </div>
+            <div v-show="menu" class="menu-fechar" @click="abrirmenu"></div>
+
+            <div class="container-icon" @click="abrirmenu">
                 <span class="material-symbols-outlined">
                     menu
                 </span>
@@ -25,11 +35,21 @@
 <script>
 export default{
     name: "Footer",
-
+    data(){
+        return{
+            menu: null,
+        }
+    },
+    methods:{
+        abrirmenu(){
+            this.menu = !this.menu
+        }
+    }
 }
 </script>
 
 <style scoped>
+
 a{
     text-decoration: none;
     color: black;
@@ -45,7 +65,8 @@ footer{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* position: fixed; */
+    position: fixed;
+    width: 100%;
 }
 .container-icon{
     width: 20%;
@@ -63,4 +84,24 @@ span{
 span:hover{
     font-size: 40pt;
 }
+.menuAberto{
+    height: 93vh;
+    width: 60vw;
+    background-color: #f7deb5;
+    position: absolute;
+    bottom: 7vh;
+    left: 0;
+    transition: 1s linear;
+}
+
+.menu-fechar{
+    height: 93vh;
+    width: 40vw;
+    background-color: #00000059;
+    position: absolute;
+    bottom: 7vh;
+    right: 0;
+    transition: 1s linear;
+}
+
 </style>

@@ -10,7 +10,7 @@ export default{
     props:{
         metodo: String
     },
-    emits:['funcao']
+    emits:['funcao'],
 }
 </script>
 
@@ -29,6 +29,7 @@ export default{
     margin-top: 20px;
     margin-bottom: 20px;
     transition: .5s;
+    padding: 20px;
 }
 .input-button:hover{
     background-color: #ad3a32;

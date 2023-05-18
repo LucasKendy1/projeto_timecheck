@@ -17,7 +17,7 @@
       "idade": 20,
       "cargo": "Enfermeira",
       "setor": "Atendimento",
-      "foto" : "https://i.imgur.com/QK553sm.jpg",
+      "foto": "https://i.imgur.com/QK553sm.jpg",
       "id": 2
     },
     {
@@ -37,6 +37,16 @@
       "cargo": "Programador Web",
       "setor": "Desenvolvimento",
       "id": 4
+    },
+    {
+      "email": "duda@email.com",
+      "pass": "mariaeduarda123",
+      "nome": "Maria Eduarda",
+      "idade": 30,
+      "cargo": "Arquiteta",
+      "setor": "Projetos",
+      "id": 5
     }
-  ]
+  ],
+  "registros": []
 }

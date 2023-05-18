@@ -5,7 +5,7 @@
                 arrow_back_ios
             </span>
         </router-link>
-        <h1>Entrada</h1>
+        <h1>Pausa</h1>
         <div class="container-title">
             <div class="container-message">
                 <Message v-if="msg" :msg="msg" :class="status"/>
@@ -62,7 +62,7 @@ import Message from '@/components/Message.vue';
                 const formatedData = `${dia}/${mes}/${ano}`
                 const form = {
                     nome: nome,
-                    registro: 'Entrada',
+                    registro: 'Pausa',
                     hora: hora,
                     data: formatedData 
                 }
