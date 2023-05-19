@@ -27,7 +27,14 @@
 
       <div :class="containerHistorico">
         <div class="container-aba" @click="abrirHistorico">^</div>
-        Historico de pontos
+        Histórico de pontos
+        
+        <div class="container-data" v-for="registro in registros" :key="registro" v-show="historico">
+          <div v-if="registro.nome==nome">
+            {{ registro.data }} <br>
+            {{ registro.registro }}- {{ registro.hora }}
+          </div>
+        </div>
       </div>
     </main>
 
@@ -52,7 +59,10 @@ export default {
       cargo: null,
       setor: null,
       foto: null,
-      containerHistorico: 'container-historico'
+      containerHistorico: 'container-historico',
+      registros: null,
+      data:null,
+      historico: false,
     }
   },
   methods:{
@@ -67,10 +77,12 @@ export default {
       }
     },
     abrirHistorico(){
+      this.historico = !this.historico
       if(this.containerHistorico == 'container-h-aberto'){
         this.containerHistorico='container-historico'
       }else{
         this.containerHistorico='container-h-aberto'
+        this.getHistorico()
       }
       
     },
@@ -87,6 +99,13 @@ export default {
       // console.log(this.cargo)
       // console.log(this.setor)
       // console.log(this.foto)
+    },
+    async getHistorico(){
+      const req = await fetch ("http://localhost:3000/registros")
+      const data = await req.json()
+      console.log(data)
+      this.registros = data
+      // console.log(this.nome)
     }
   },
   mounted(){
@@ -200,5 +219,18 @@ img{
   text-align: center;
   color: white;
   font-size: 20pt;
+}
+.container-data{
+  color: white;
+  /* position: absolute; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 12pt;
+  background-color: #feb06a;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
 }
 </style>

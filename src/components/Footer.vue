@@ -23,7 +23,7 @@
                     </span>
                 </div>
             </router-link>
-            <div class="container-icon">
+            <div class="container-icon" @click="$emit(abrirHistorico)">
                 <span class="material-symbols-outlined">
                     check_circle
                 </span>
@@ -44,7 +44,8 @@ export default{
         abrirmenu(){
             this.menu = !this.menu
         }
-    }
+    },
+    emits:['abrirHistorico']
 }
 </script>
 
@@ -81,9 +82,6 @@ span{
     transition: .5s ease;
     cursor: pointer;
 }
-span:hover{
-    font-size: 40pt;
-}
 .menuAberto{
     height: 93vh;
     width: 60vw;
@@ -103,5 +101,11 @@ span:hover{
     right: 0;
     transition: 1s linear;
 }
-
+ul{
+    color: #f25044;
+    font-size: 20pt;
+}
+li{
+    cursor: pointer;
+}
 </style>
