@@ -1,6 +1,7 @@
 <template>
     <div class="main-container">
         <Message :msg="msg" :status="status" />
+        <img src="@/../public/imagelogin.webp" alt="">
         <h1>Login</h1>
         <p>Entre para continuar</p>
         <form>
@@ -94,6 +95,9 @@ import Message from '@/components/Message.vue';
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* background-color: aqua; */
+    height: 100vh;
+    width: 100vw;
 }
 .container-input{
     width: 70%;
@@ -119,5 +123,8 @@ input{
     justify-content: flex-start;
     align-items: center;
     border-bottom: 2px solid #feb06a;
+}
+img{
+    width: 300px;
 }
 </style>

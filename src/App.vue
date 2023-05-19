@@ -11,7 +11,7 @@
   padding: 0;
 }
 body{
-  background-color: #30526a;
+  background-color: #2d3e50;
   font-family: 'Poppins', sans-serif;
 }
 h1{

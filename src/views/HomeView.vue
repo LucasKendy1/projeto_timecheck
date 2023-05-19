@@ -10,9 +10,32 @@
     </header>
 
     <main :class="expandMain">
-      <router-link to="/entrada">
-        <div>Entrada</div>
-      </router-link>
+      <div class="container-telas">
+        <router-link to="/entrada" tela="Entrada">
+          <div class="container-tela">Entrada</div>
+        </router-link>
+        <router-link to="/pausa" tela="Pausa">
+          <div class="container-tela">Pausa</div>
+        </router-link>
+        <router-link to="/volta" tela="Volta">
+          <div class="container-tela">Volta</div>
+        </router-link>
+        <router-link to="/saida" tela="Saida">
+          <div class="container-tela">Saida</div>
+        </router-link>
+      </div>
+
+      <div :class="containerHistorico">
+        <div class="container-aba" @click="abrirHistorico">^</div>
+        Histórico de pontos
+        
+        <div class="container-data" v-for="registro in registros" :key="registro" v-show="historico">
+          <div v-if="registro.nome==nome">
+            {{ registro.data }} <br>
+            {{ registro.registro }}- {{ registro.hora }}
+          </div>
+        </div>
+      </div>
     </main>
 
     <Footer />
@@ -25,7 +48,7 @@ import Footer from '@/components/Footer.vue';
 export default {
   name: 'HomeView',
   components: {
-    Footer
+    Footer,
   },
   data(){
     return{
@@ -36,6 +59,10 @@ export default {
       cargo: null,
       setor: null,
       foto: null,
+      containerHistorico: 'container-historico',
+      registros: null,
+      data:null,
+      historico: false,
     }
   },
   methods:{
@@ -48,6 +75,16 @@ export default {
         this.expand = "aberto"
         this.expandMain = "abertoMain"
       }
+    },
+    abrirHistorico(){
+      this.historico = !this.historico
+      if(this.containerHistorico == 'container-h-aberto'){
+        this.containerHistorico='container-historico'
+      }else{
+        this.containerHistorico='container-h-aberto'
+        this.getHistorico()
+      }
+      
     },
     async getUser(){
       const myUser = JSON.parse(localStorage.getItem('user'))
@@ -62,6 +99,13 @@ export default {
       // console.log(this.cargo)
       // console.log(this.setor)
       // console.log(this.foto)
+    },
+    async getHistorico(){
+      const req = await fetch ("http://localhost:3000/registros")
+      const data = await req.json()
+      console.log(data)
+      this.registros = data
+      // console.log(this.nome)
     }
   },
   mounted(){
@@ -83,10 +127,37 @@ header{
   justify-content: space-around;
   align-items: center;
 }
+header:hover{
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.301);
+}
 main{
   height: calc(100vh - 27vh);
   width: 100%;
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: aqua; */
+}
+.container-tela{
+  color: white;
+  font-size: 20pt;
+  width: 60vw;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #32566e;
+  border-radius: 6px;
+  margin-top: 20px;
+  transition: .5s ease;
+}
+.container-tela:hover{
+  background-color: #2c495e;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.26);
+}
+a{
+  text-decoration: none;
 }
 .abertoMain{
   height: calc(100vh - (27vh - 20vh));
@@ -112,5 +183,54 @@ img{
   border: 5px solid white;
   padding: 5px;
 }
-
+.container-historico{
+  width: 100%;
+  height: 100px;
+  background-color: #223c4d;
+  text-align: center;
+  color: white;
+  font-size: 20pt;
+  transition: 1s ease;
+}
+.container-aba{
+  width: 100%;
+  height: 30px;
+  background-color: #1f3747;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  transition: .5s ease;
+}
+.container-aba:hover{
+  height: 40px;
+}
+.container-telas{
+  width: fit-content;
+  height: fit-content;
+  /* background-color: red; */
+}
+.container-h-aberto{
+  position: absolute;
+  height: 90%;
+  width: 100%;
+  background-color: #223c4d;
+  text-align: center;
+  color: white;
+  font-size: 20pt;
+}
+.container-data{
+  color: white;
+  /* position: absolute; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  font-size: 12pt;
+  background-color: #feb06a;
+  width: 80%;
+  margin: auto;
+  margin-top: 20px;
+}
 </style>

@@ -17,7 +17,7 @@
       "idade": 20,
       "cargo": "Enfermeira",
       "setor": "Atendimento",
-      "foto" : "https://i.imgur.com/QK553sm.jpg",
+      "foto": "https://i.imgur.com/QK553sm.jpg",
       "id": 2
     },
     {
@@ -37,6 +37,87 @@
       "cargo": "Programador Web",
       "setor": "Desenvolvimento",
       "id": 4
+    },
+    {
+      "email": "duda@email.com",
+      "pass": "mariaeduarda123",
+      "nome": "Maria Eduarda",
+      "idade": 30,
+      "cargo": "Arquiteta",
+      "setor": "Projetos",
+      "id": 5
+    }
+  ],
+  "registros": [
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Entrada",
+      "hora": "10 : 50 : 59",
+      "data": "19/5/2023",
+      "id": 1
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Pausa",
+      "hora": "11 : 03 : 42",
+      "data": "19/5/2023",
+      "id": 2
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Volta",
+      "hora": "11 : 03 : 46",
+      "data": "19/5/2023",
+      "id": 3
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Saida",
+      "hora": "11 : 03 : 50",
+      "data": "19/5/2023",
+      "id": 4
+    },
+    {
+      "nome": "Clara Maria Lima",
+      "registro": "Entrada",
+      "hora": "11 : 13 : 18",
+      "data": "19/5/2023",
+      "id": 5
+    },
+    {
+      "nome": "Clara Maria Lima",
+      "registro": "Pausa",
+      "hora": "11 : 13 : 21",
+      "data": "19/5/2023",
+      "id": 6
+    },
+    {
+      "nome": "Clara Maria Lima",
+      "registro": "Volta",
+      "hora": "11 : 13 : 25",
+      "data": "20/5/2023",
+      "id": 7
+    },
+    {
+      "nome": "Clara Maria Lima",
+      "registro": "Saida",
+      "hora": "11 : 13 : 28",
+      "data": "21/5/2023",
+      "id": 8
+    },
+    {
+      "nome": "Clara Maria Lima",
+      "registro": "Saida",
+      "hora": "11 : 13 : 28",
+      "data": "22/5/2023",
+      "id": 8
+    },
+    {
+      "nome": "Clara Maria Lima",
+      "registro": "Saida",
+      "hora": "11 : 13 : 28",
+      "data": "23/5/2023",
+      "id": 8
     }
   ]
 }
