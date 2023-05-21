@@ -4,8 +4,15 @@
       <div class="container-nome">
         <h3>Logado como:</h3> <h2>{{ nome }}</h2>
       </div>
+
       <div class="container-foto">
         <img :src="foto" alt="foto">
+      </div>
+
+      <div class="container-infos" v-if="show">
+        <ContainerDado nome="Email" :myProp="email"/>
+        <ContainerDado nome="Cargo" :myProp="cargo"/>
+        <ContainerDado nome="Setor" :myProp="setor"/>
       </div>
     </header>
 
@@ -44,11 +51,13 @@
 
 <script>
 import Footer from '@/components/Footer.vue';
+import ContainerDado from '@/components/ContainerDado.vue';
 
 export default {
   name: 'HomeView',
   components: {
     Footer,
+    ContainerDado
   },
   data(){
     return{
@@ -63,6 +72,7 @@ export default {
       registros: null,
       data:null,
       historico: false,
+      show:false
     }
   },
   methods:{
@@ -75,6 +85,7 @@ export default {
         this.expand = "aberto"
         this.expandMain = "abertoMain"
       }
+      this.show= !this.show
     },
     abrirHistorico(){
       this.historico = !this.historico
@@ -172,6 +183,8 @@ a{
   background-color: #f25044;
   position: absolute;
   height: 90vh;
+  display: flex;
+  flex-direction: column;
 }
 h3,h2{
   font-weight: 400;
@@ -232,5 +245,40 @@ img{
   width: 80%;
   margin: auto;
   margin-top: 20px;
+}
+.container-infos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 800px) and (max-width: 1378px){
+  .container-telas{
+    flex-wrap: wrap;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .container-tela{
+    width: 300px;
+    height: 250px;
+    margin: 20px;
+  }
+}
+
+@media (min-width: 1378px){
+  .container-telas{
+    flex-wrap: wrap;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .container-tela{
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+  }
 }
 </style>
