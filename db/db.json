@@ -118,6 +118,34 @@
       "hora": "11 : 13 : 28",
       "data": "23/5/2023",
       "id": 8
+    },
+    {
+      "nome": "Maria Eduarda",
+      "registro": "Entrada",
+      "hora": "19 : 15 : 24",
+      "data": "19/5/2023",
+      "id": 9
+    },
+    {
+      "nome": "Maria Eduarda",
+      "registro": "Pausa",
+      "hora": "19 : 15 : 30",
+      "data": "19/5/2023",
+      "id": 10
+    },
+    {
+      "nome": "Maria Eduarda",
+      "registro": "Volta",
+      "hora": "19 : 15 : 34",
+      "data": "19/5/2023",
+      "id": 11
+    },
+    {
+      "nome": "Maria Eduarda",
+      "registro": "Saida",
+      "hora": "19 : 15 : 38",
+      "data": "19/5/2023",
+      "id": 12
     }
   ]
 }
