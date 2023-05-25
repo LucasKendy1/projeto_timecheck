@@ -1,10 +1,6 @@
 <template>
     <div>
-        <router-link to="/">
-            <span class="material-symbols-outlined">
-                arrow_back_ios
-            </span>
-        </router-link>
+        <ButtonVoltar />
         <h1>Pausa</h1>
         <div class="container-title">
             <div class="container-message">
@@ -25,6 +21,7 @@ import Footer from '@/components/Footer.vue';
 import Relogio from '@/components/Relogio.vue';
 import Button from '@/components/Button.vue';
 import Message from '@/components/Message.vue';
+import ButtonVoltar from '@/components/ButtonVoltar.vue';
 
     export default{
         name:'Entrada',
@@ -32,7 +29,8 @@ import Message from '@/components/Message.vue';
             Footer,
             Relogio,
             Button,
-            Message
+            Message,
+            ButtonVoltar
         },
         data(){
             return{

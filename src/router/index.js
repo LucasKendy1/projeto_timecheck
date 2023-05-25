@@ -6,6 +6,8 @@ import Entrada from '@/views/Entrada.vue'
 import Pausa from "@/views/Pausa.vue"
 import Volta from "@/views/Volta.vue"
 import Saida from "@/views/Saida.vue"
+import Ajuda from "@/views/Ajuda.vue"
+import Historico from "@/views/Historico.vue"
 
 const routes = [
   {
@@ -50,6 +52,16 @@ const routes = [
     path: '/saida',
     name: 'saida',
     component: Saida
+  },
+  {
+    path: '/ajuda',
+    name: 'ajuda',
+    component: Ajuda
+  },
+  {
+    path: '/historico',
+    name: 'historico',
+    component: Historico
   }
 ]
 

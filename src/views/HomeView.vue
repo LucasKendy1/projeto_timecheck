@@ -6,7 +6,9 @@
       </div>
 
       <div class="container-foto">
-        <img :src="foto" alt="foto">
+        <img :src="foto" alt="foto" :class="expandFoto">
+        <!-- <input v-if="show" type="file" @change="uploadFile">
+        <button v-if="show" @click="submitFile">Upload</button> -->
       </div>
 
       <div class="container-infos" v-if="show">
@@ -14,54 +16,100 @@
         <ContainerDado nome="Cargo" :myProp="cargo"/>
         <ContainerDado nome="Setor" :myProp="setor"/>
       </div>
+      <div class="container-button" v-if=show>
+          <button>
+            <router-link to="/login">
+            <span class="material-symbols-outlined">
+              logout
+            </span>
+            Sair da conta
+          </router-link>
+          </button>
+      </div>
     </header>
 
     <main :class="expandMain">
       <div class="container-telas">
         <router-link to="/entrada" tela="Entrada">
-          <div class="container-tela">Entrada</div>
+          <div class="container-tela">
+            <div class="container-span">
+          </div>
+            Entrada
+            <div class="container-span">
+              <span class="material-symbols-outlined">
+                play_arrow
+              </span>
+            </div>
+          </div>
         </router-link>
         <router-link to="/pausa" tela="Pausa">
-          <div class="container-tela">Pausa</div>
+          <div class="container-tela">
+            <div class="container-span">
+              <span class="material-symbols-outlined">
+                pause
+              </span>
+            </div>
+            Pausa
+            <div class="container-span">
+
+            </div>
+          </div>
         </router-link>
         <router-link to="/volta" tela="Volta">
-          <div class="container-tela">Volta</div>
+          <div class="container-tela">
+            <div class="container-span"></div>
+            Volta
+            <div class="container-span">
+              <span class="material-symbols-outlined">
+                local_cafe
+              </span>
+            </div>
+          </div>
         </router-link>
         <router-link to="/saida" tela="Saida">
-          <div class="container-tela">Saida</div>
+          <div class="container-tela">
+            <div class="container-span">
+              <span class="material-symbols-outlined">
+                logout
+              </span>
+            </div>
+            Saida
+            <div class="container-span">
+              
+            </div>
+          </div>
         </router-link>
       </div>
 
       <div :class="containerHistorico">
         <div class="container-aba" @click="abrirHistorico">^</div>
-        Histórico de pontos
-        
-        <div class="container-data" v-for="registro in registros" :key="registro" v-show="historico">
-          <div v-if="registro.nome==nome">
-            {{ registro.data }} <br>
-            {{ registro.registro }}- {{ registro.hora }}
-          </div>
+        <div class="container-h1">Histórico de pontos</div>
+        <div class="container-componente" v-if="historico">
+          <RenderHistorico :historico="historico"/>
         </div>
       </div>
     </main>
 
-    <Footer />
+    <Footer @abrir-header = "abrirHeader"/>
   </div>
 </template>
 
 <script>
 import Footer from '@/components/Footer.vue';
 import ContainerDado from '@/components/ContainerDado.vue';
+import RenderHistorico from '@/components/RenderHistorico.vue';
 
 export default {
   name: 'HomeView',
   components: {
     Footer,
-    ContainerDado
+    ContainerDado,
+    RenderHistorico
   },
   data(){
     return{
       expand: "normal",
+      expandFoto: "normalFoto",
       expandMain: "normalMain",
       nome: null,
       email: null,
@@ -71,8 +119,9 @@ export default {
       containerHistorico: 'container-historico',
       registros: null,
       data:null,
-      historico: false,
-      show:false
+      historico: null,
+      show:false,
+      files: null,
     }
   },
   methods:{
@@ -80,10 +129,12 @@ export default {
       if(this.expand == "aberto"){
         this.expand = "normal"
         this.expandMain = "normalMain"
+        this.expandFoto = "normalFoto"
       }
       else{
         this.expand = "aberto"
         this.expandMain = "abertoMain"
+        this.expandFoto = "abertoFoto"
       }
       this.show= !this.show
     },
@@ -93,9 +144,7 @@ export default {
         this.containerHistorico='container-historico'
       }else{
         this.containerHistorico='container-h-aberto'
-        this.getHistorico()
       }
-      
     },
     async getUser(){
       const myUser = JSON.parse(localStorage.getItem('user'))
@@ -111,17 +160,10 @@ export default {
       // console.log(this.setor)
       // console.log(this.foto)
     },
-    async getHistorico(){
-      const req = await fetch ("http://localhost:3000/registros")
-      const data = await req.json()
-      console.log(data)
-      this.registros = data
-      // console.log(this.nome)
-    }
   },
   mounted(){
     this.getUser()
-  }
+  },
 }
 </script>
 
@@ -156,7 +198,7 @@ main{
   width: 60vw;
   height: 70px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #32566e;
   border-radius: 6px;
@@ -180,7 +222,7 @@ a{
   background-color: #f25044;
 }
 .aberto{
-  background-color: #f25044;
+  background-color: #233c4d;
   position: absolute;
   height: 90vh;
   display: flex;
@@ -189,9 +231,16 @@ a{
 h3,h2{
   font-weight: 400;
 }
-img{
+.normalFoto{
   width: 100px;
   height: 100px;
+  border-radius: 50%;
+  border: 5px solid white;
+  padding: 5px;
+}
+.abertoFoto{
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   border: 5px solid white;
   padding: 5px;
@@ -205,9 +254,33 @@ img{
   font-size: 20pt;
   transition: 1s ease;
 }
+.container-h-aberto{
+  position: absolute;
+  width: 100%;
+  height: 76vh;
+  background-color: #223c4d;
+  text-align: center;
+  color: white;
+  font-size: 20pt;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.container-h1{
+  height: 5vh;
+  width: 100%;
+  /* background-color: #26471f; */
+}
+.container-componente{
+  height: 60vh;
+  width: 100%;
+  /* background-color: #e9fa2d; */
+  overflow-y: scroll;
+}
 .container-aba{
   width: 100%;
-  height: 30px;
+  height: 5vh;
   background-color: #1f3747;
   display: flex;
   justify-content: center;
@@ -217,41 +290,31 @@ img{
   transition: .5s ease;
 }
 .container-aba:hover{
-  height: 40px;
+  height: 6vh;
 }
 .container-telas{
   width: fit-content;
   height: fit-content;
   /* background-color: red; */
 }
-.container-h-aberto{
-  position: absolute;
-  height: 90%;
-  width: 100%;
-  background-color: #223c4d;
-  text-align: center;
-  color: white;
-  font-size: 20pt;
+
+
+.container-button{
+  display: none;
 }
-.container-data{
-  color: white;
-  /* position: absolute; */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  font-size: 12pt;
-  background-color: #feb06a;
-  width: 80%;
-  margin: auto;
-  margin-top: 20px;
-}
-.container-infos{
+.container-span{
+  /* background-color: #f25044; */
+  width: 20%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
+.container-span > span{
+  color: #2d3e50;
+  font-size: 40pt;
+}
+
 @media (min-width: 800px) and (max-width: 1378px){
   .container-telas{
     flex-wrap: wrap;
@@ -264,6 +327,14 @@ img{
     width: 300px;
     height: 250px;
     margin: 20px;
+  }
+  
+  .container-span > span{
+    color: #2d3e50;
+    font-size: 50pt;
+    /* background-color: #feb06a; */
+    /* position: relative; */
+    
   }
 }
 
@@ -279,6 +350,42 @@ img{
     width: 300px;
     height: 400px;
     margin: 20px;
+  }
+  .abertoFoto{
+    width: 200px;
+    height: 200px;
+  }
+  .aberto{
+    /* background-color: #f25044; */
+    flex-direction: row;
+    align-items: start;
+    padding-top: 20px;
+    justify-content: space-around;
+  }
+  .container-infos{
+    position: absolute;
+    top: 40%;
+  }
+  .container-button{
+    width: 300px;
+    height: 70px;
+    border-radius: 10px;
+    display: block;
+    position: absolute;
+    background-color: #f25044;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 70%;
+  }
+  .container-button > button{
+    border: none;
+    background-color: #f25044;
+    color: white;
+    font-size: 20pt;
+  }
+  .container-button > button > a{
+    color: white;
   }
 }
 </style>

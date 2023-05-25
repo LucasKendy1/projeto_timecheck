@@ -1,10 +1,6 @@
 <template>
     <div>
-        <router-link to="/">
-            <span class="material-symbols-outlined">
-                arrow_back_ios
-            </span>
-        </router-link>
+        <ButtonVoltar />
         <h1>Entrada</h1>
         <div class="container-title">
             <div class="container-message">
@@ -25,6 +21,7 @@ import Footer from '@/components/Footer.vue';
 import Relogio from '@/components/Relogio.vue';
 import Button from '@/components/Button.vue';
 import Message from '@/components/Message.vue';
+import ButtonVoltar from '@/components/ButtonVoltar.vue';
 
     export default{
         name:'Entrada',
@@ -32,7 +29,8 @@ import Message from '@/components/Message.vue';
             Footer,
             Relogio,
             Button,
-            Message
+            Message,
+            ButtonVoltar
         },
         data(){
             return{
@@ -95,15 +93,7 @@ h1{
     margin-top: 30px;
     height: 7vh;
 }
-a{
-    color: white;
-    position: absolute;
-    left: 50px;
-    top: 50px;
-}
-span{
-    font-size: 30pt;
-}
+
 .container-message{
     width: 50%;
 }

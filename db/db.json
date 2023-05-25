@@ -27,6 +27,7 @@
       "idade": 33,
       "cargo": "Atendente",
       "setor": "Atendimento",
+      "foto": "https://i.imgur.com/QGC2Td8.png",
       "id": 3
     },
     {
@@ -36,6 +37,7 @@
       "idade": 20,
       "cargo": "Programador Web",
       "setor": "Desenvolvimento",
+      "foto": "https://i.imgur.com/otzUMGE.png",
       "id": 4
     },
     {
@@ -45,7 +47,28 @@
       "idade": 30,
       "cargo": "Arquiteta",
       "setor": "Projetos",
+      "foto": "https://i.imgur.com/oKpqvOU.png",
       "id": 5
+    },
+    {
+      "email": "liviagabriele@email.com",
+      "pass": "123123",
+      "nome": "Livia Gabriele",
+      "idade": 23,
+      "cargo": "desempregada",
+      "setor": "desempregada",
+      "foto": "https://i.imgur.com/aK3uCHk.png",
+      "id": 6
+    },
+    {
+      "email": "teste",
+      "pass": "teste",
+      "nome": "teste",
+      "idade": 999,
+      "cargo": "teste",
+      "setor": "teste",
+      "foto": "https://i.imgur.com/2wlifZU.jpg",
+      "id": 7
     }
   ],
   "registros": [
@@ -118,6 +141,62 @@
       "hora": "11 : 13 : 28",
       "data": "23/5/2023",
       "id": 8
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Entrada",
+      "hora": "21 : 27 : 31",
+      "data": "23/5/2023",
+      "id": 9
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Pausa",
+      "hora": "21 : 27 : 37",
+      "data": "23/5/2023",
+      "id": 10
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Volta",
+      "hora": "21 : 27 : 40",
+      "data": "23/5/2023",
+      "id": 11
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Saida",
+      "hora": "21 : 27 : 43",
+      "data": "23/5/2023",
+      "id": 12
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Entrada",
+      "hora": "15 : 39 : 48",
+      "data": "24/5/2023",
+      "id": 13
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Pausa",
+      "hora": "15 : 39 : 52",
+      "data": "24/5/2023",
+      "id": 14
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Volta",
+      "hora": "15 : 39 : 56",
+      "data": "24/5/2023",
+      "id": 15
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Saida",
+      "hora": "15 : 39 : 59",
+      "data": "24/5/2023",
+      "id": 16
     }
   ]
 }
