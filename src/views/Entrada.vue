@@ -1,6 +1,6 @@
 <template>
     <div>
-        <ButtonVoltar />
+        <ButtonVoltar color="white"/>
         <h1>Entrada</h1>
         <div class="container-title">
             <div class="container-message">

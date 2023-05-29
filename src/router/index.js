@@ -8,6 +8,7 @@ import Volta from "@/views/Volta.vue"
 import Saida from "@/views/Saida.vue"
 import Ajuda from "@/views/Ajuda.vue"
 import Historico from "@/views/Historico.vue"
+import AjudaLogin from '@/views/AjudaLogin.vue'
 
 const routes = [
   {
@@ -62,6 +63,11 @@ const routes = [
     path: '/historico',
     name: 'historico',
     component: Historico
+  },
+  {
+    path: '/ajudalogin',
+    name: 'ajudalogin',
+    component: AjudaLogin
   }
 ]
 

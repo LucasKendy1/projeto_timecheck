@@ -3,18 +3,24 @@
         <footer>
             <div v-show="menu" class="menuAberto">
                 <div class="container-imagem"></div>
-                <ul>
-                    <li @click="$emit('abrirHeader') "><div @click="abrirmenu">Perfil</div></li>
-                    <router-link to="/historico">
-                        <li>Meus Pontos</li>
-                    </router-link>
-                    <a target="blank" href="https://chat.whatsapp.com/I71VfpsDMbZEd8pzaDO4qi">
-                        <li>Chat RH</li>
-                    </a>
-                    <router-link to="/ajuda">
-                        <li>Ajuda</li>
-                    </router-link>
-                </ul>
+                <div class="container-links">
+                    <ul>
+                        <li @click="$emit('abrirHeader') ">
+                            <div @click="abrirmenu">
+                                Perfil
+                            </div>
+                        </li>
+                        <router-link to="/historico">
+                            <li>Meus Pontos</li>
+                        </router-link>
+                        <a target="blank" href="https://chat.whatsapp.com/I71VfpsDMbZEd8pzaDO4qi">
+                            <li>Chat RH</li>
+                        </a>
+                        <router-link to="/ajuda">
+                            <li>Ajuda</li>
+                        </router-link>
+                    </ul>
+                </div>
 
                 <div class="container-botoes">
                     <div class="container-settings">
@@ -130,7 +136,7 @@ span{
     right: 0;
     transition: 1s linear;
 }
-ul{
+/* ul{
     color: #f25044;
     font-size: 20pt;
     transform: translateY(-80px);
@@ -138,11 +144,11 @@ ul{
 ul > a{
     color: #f25044;
     transform: translateX(-30px);
-}
+} */
 li{
     cursor: pointer;
     list-style-type: none;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .container-imagem{
     width: 300px;
@@ -187,6 +193,25 @@ li{
     color: white;
     font-size:20pt;
     border-radius: 10px;
+}
+.container-links{
+    /* background-color: #44f261; */
+    width: 80%;
+    height: 50%;
+    font-size: 20pt;
+    color: #f25044;
+
+}
+.container-links > ul > a{
+    font-size: 20pt;
+    color: #f25044;
+    /* margin-bottom: 20px; */
+}
+ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
 }
 @media(min-width: 780px) and (max-width: 1440px){
 .menuAberto{
