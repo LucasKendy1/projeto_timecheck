@@ -190,6 +190,34 @@
       "hora": "15 : 39 : 56",
       "data": "24/5/2023",
       "id": 15
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Entrada",
+      "hora": "14 : 13 : 09",
+      "data": "29/5/2023",
+      "id": 16
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Pausa",
+      "hora": "14 : 13 : 12",
+      "data": "29/5/2023",
+      "id": 17
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Volta",
+      "hora": "14 : 13 : 16",
+      "data": "29/5/2023",
+      "id": 18
+    },
+    {
+      "nome": "Lucas Kendy Urano",
+      "registro": "Saida",
+      "hora": "14 : 13 : 20",
+      "data": "29/5/2023",
+      "id": 19
     }
   ]
 }
