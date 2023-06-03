@@ -170,7 +170,7 @@ input::placeholder{
     color: white;
 }
 form{
-    width: 50%;
+    width: 80vw;
     /* background-color: aqua; */
 }
 label{
