@@ -120,11 +120,12 @@ import Button from '@/components/Button.vue'
                 // console.log(form)
                 const formatedForm = JSON.stringify(form)
                 // console.log(formatedForm)
-                const req = await fetch("http://localhost:3000/users",{
+                /*const req = await fetch("http://localhost:3000/users",{
                     method: "POST",
                     headers: { "Content-Type": "application/json"},
                     body: formatedForm
-                })
+                }) CONTEUDO ANTIGO FEITO COM JSON SERVER
+                */
                 const res = await req.json()
                 // console.log(res)
                 this.done = true
