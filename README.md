@@ -15,5 +15,15 @@ npm run serve
 npm run build
 ```
 
+### Compiles backend (json-server) fake api
+```
+npm run backend
+```
+
+### Compiles backend (mysql server)
+```
+node app.js
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
