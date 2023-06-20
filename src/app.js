@@ -14,7 +14,7 @@ connection.connect((err) => {
   }
   console.log('Conexão bem-sucedida ao banco de dados!');
   // Exemplo de consulta SQL
-  connection.query('SELECT * FROM time_check.users', (err, rows) => {
+  const resultado=  connection.query('SELECT * FROM time_check.users', (err, rows) => {
     if (err) {
         console.error('Erro ao executar a consulta:', err);
         return;
@@ -22,6 +22,7 @@ connection.connect((err) => {
 
     console.log('Resultados da consulta:', rows);
   });
-
-  connection.end(); // Encerra a conexão com o banco de dados
+  this.resultadoQuery = JSON.stringify(resultado)
+  console.log(this.resultadoQuery)
+  // connection.end(); // Encerra a conexão com o banco de dados
 });

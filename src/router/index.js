@@ -9,6 +9,7 @@ import Saida from "@/views/Saida.vue"
 import Ajuda from "@/views/Ajuda.vue"
 import Historico from "@/views/Historico.vue"
 import AjudaLogin from '@/views/AjudaLogin.vue'
+import Funcionarios from '@/views/Funcionarios.vue'
 
 const routes = [
   {
@@ -68,6 +69,11 @@ const routes = [
     path: '/ajudalogin',
     name: 'ajudalogin',
     component: AjudaLogin
+  },
+  {
+    path: '/funcionarios',
+    name: 'funcionarios',
+    component: Funcionarios
   }
 ]
 
