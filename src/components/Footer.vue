@@ -19,6 +19,9 @@
                         <router-link to="/ajuda">
                             <li>Ajuda</li>
                         </router-link>
+                        <router-link to="/funcionarios">
+                            <li>Funcionarios</li>
+                        </router-link>
                     </ul>
                 </div>
 
